@@ -18,18 +18,43 @@
   <header class="site-header d-flex align-items-center justify-content-between px-3 py-2">
     <div class="d-flex align-items-center header-left">
       <!-- FOTO (izquierda) -->
-      {% if usuario %}
-        <img src="{{ url_for('static', filename='uploads/linkedinn.png') }}" alt="perfil" class="header-photo me-2">
-        <img src="{{ url_for('static', filename='uploads/github.png') }}" alt="perfil" class="header-photo me-2">
-        <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" alt="perfil" class="header-photo me-2">
-        <div class="header-name">{{ usuario.nombre_publico }} - Portfolio</div>
-      {% else %}
-        <!-- Default: imagen por defecto y texto estático -->
-        <img src="{{ url_for('static', filename='uploads/github.png') }}" alt="perfil" class="header-photo me-2">
-        <img src="{{ url_for('static', filename='uploads/default_profile.png') }}" alt="perfil" class="header-photo me-2">
-        <div class="header-name">Tu Nombre - Portfolio</div>
-      {% endif %}
-    </div>
+  {% if usuario %}
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/tu-url-aqui" target="_blank">
+    <img src="{{ url_for('static', filename='uploads/linkedinn.png') }}" 
+         alt="LinkedIn" 
+         class="header-photo me-2">
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/OriDaer" target="_blank">
+    <img src="{{ url_for('static', filename='uploads/github.png') }}" 
+         alt="GitHub" 
+         class="header-photo me-2">
+  </a>
+
+  <!-- Foto de perfil -->
+  <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" 
+       alt="perfil" 
+       class="header-photo me-2">
+
+  <div class="header-name">{{ usuario.nombre_publico }} - Portfolio</div>
+
+{% else %}
+
+  <a href="https://github.com/OriDaer" target="_blank">
+    <img src="{{ url_for('static', filename='uploads/github.png') }}" 
+         alt="GitHub" 
+         class="header-photo me-2">
+  </a>
+
+  <img src="{{ url_for('static', filename='uploads/default_profile.png') }}" 
+       alt="perfil" 
+       class="header-photo me-2">
+  <div class="header-name">Tu Nombre - Portfolio</div>
+
+{% endif %}
+
 
     <div class="header-right">
       {% if session.get('user') %}

@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 from functools import wraps
 
 from forms import LoginForm, ProfileEditForm
-from models import db, Usuario
+from models import db, Usuario, Experiencia, Educacion, Curso
 from config import Config
 
 
@@ -53,7 +53,7 @@ def inicializar_app():
             username="daer",
             password=hashed_pw,
             nombre_publico="Daer Oriana Berenice",
-            profile_image="default_profile.png"
+            profile_image="daer.png"
         )
         db.session.add(user)
         db.session.commit()
@@ -64,10 +64,16 @@ def inicializar_app():
 # ---------------------
 @app.route('/')
 def index():
-    usuario = None
+    usuario = Usuario.query.filter_by(username="daer").first()
+    educacion = Educacion.query.filter_by(usuario_id=usuario.id).all()
+    cursos = Curso.query.filter_by(usuario_id=usuario.id).all()
+
+    experiencias = Experiencia.query.filter_by(usuario_id=usuario.id).all()
     if 'user' in session:
         usuario = Usuario.query.filter_by(username=session['user']).first()
-    return render_template('index.html', usuario=usuario)
+        experiencias = Experiencia.query.filter_by(usuario_id=usuario.id).all()
+
+    return render_template('index.html', usuario=usuario , experiencias=experiencias, educacion=educacion, cursos=cursos)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -118,12 +124,131 @@ def dashboard():
     if request.method == 'GET':
         form.nombre_publico.data = usuario.nombre_publico
 
-    return render_template('dashboard.html', usuario=usuario, form=form)
+    return render_template('dashboard.html', usuario=usuario, form=form, )
 
 
 @app.route('/uploads/<filename>')
 def uploads(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+
+@app.route('/editar-acerca', methods=['POST'])
+@login_required
+def editar_acerca():
+    usuario = Usuario.query.filter_by(username=session['user']).first()
+    usuario.acerca_de_mi = request.form['acerca']
+    usuario.save()
+    flash("Sección actualizada", "success")
+    return redirect(url_for('index'))
+
+@app.route('/editar_experiencia', methods=['POST'])
+@login_required
+def editar_experiencia():
+    usuario = Usuario.query.filter_by(username=session['user']).first()
+    experiencias = Experiencia.query.filter_by(usuario_id=usuario.id).all()
+
+    for exp in experiencias:
+        exp.proyecto = request.form.get(f"proyecto_{exp.id}")
+        exp.descripcion = request.form.get(f"descripcion_{exp.id}")
+        exp.puesto = request.form.get(f"puesto_{exp.id}")
+        exp.periodo = request.form.get(f"periodo_{exp.id}")
+        exp.logros = request.form.get(f"logros_{exp.id}")
+
+    db.session.commit()
+    flash("Experiencia laboral actualizada exitosamente", "success")
+    return redirect(url_for('index'))
+
+@app.route('/agregar_experiencia', methods=['POST'])
+@login_required
+def agregar_experiencia():
+    usuario = Usuario.query.filter_by(username=session['user']).first()
+
+    nueva = Experiencia(
+        proyecto=request.form['proyecto'],
+        descripcion=request.form['descripcion'],
+        puesto=request.form['puesto'],
+        periodo=request.form['periodo'],
+        logros=request.form['logros'],
+        usuario_id=usuario.id
+    )
+
+    db.session.add(nueva)
+    db.session.commit()
+    flash("Nueva experiencia agregada", "success")
+    return redirect(url_for('index'))
+
+@app.route('/eliminar_experiencia/<int:exp_id>', methods=['POST'])
+@login_required
+def eliminar_experiencia(exp_id):
+    exp = Experiencia.query.get(exp_id)
+    if exp:
+        db.session.delete(exp)
+        db.session.commit()
+        flash("Experiencia eliminada", "info")
+    return redirect(url_for('index'))
+
+#-----------EDUCACION ROUTES  ----------------
+@app.route('/agregar_educacion', methods=['POST'])
+@login_required
+def agregar_educacion():
+    usuario = Usuario.query.filter_by(username=session['user']).first()
+    #carga logo si existe
+    file= request.files.get('logo')
+    filename= None
+    if file and file.filename:
+        filename=secure_filename(file.filename)
+        path=os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(path)
+    edu=Educacion(
+        usuario_id = usuario.id,
+        titulo=request.form['titulo'],
+        institucion=request.form['institucion'],
+        periodo=request.form['periodo'],
+        estado=request.form['estado'],
+        logo=filename
+    )
+    db.session.add(edu)
+    db.session.commit()
+    flash("Nueva educación agregada", "success")
+    return redirect(url_for('dashboard')) 
+
+@app.route('/eliminar_educacion/<int:edu_id>', methods=['POST'])
+@login_required
+def eliminar_educacion(edu_id):
+    edu = Educacion.query.get(edu_id)
+    if edu:
+        db.session.delete(edu)
+        db.session.commit()
+        flash("Educación eliminada", "info")
+    return redirect(url_for('dashboard'))
+
+@app.route('/agregar_curso', methods=['POST'])
+@login_required
+def agregar_curso():
+    usuario = Usuario.query.filter_by(username=session['user']).first()
+
+    curso = Curso(
+        usuario_id=usuario.id,
+        nombre=request.form['nombre'],
+        institucion=request.form['institucion'],
+        periodo=request.form['periodo'],
+        certificacion_url=request.form.get('certificacion_url')
+    )
+
+    db.session.add(curso)
+    db.session.commit()
+    flash("Curso agregado", "success")
+    return redirect(url_for('dashboard'))
+
+@app.route('/eliminar_curso/<int:curso_id>', methods=['POST'])
+@login_required
+def eliminar_curso(curso_id):
+    curso = Curso.query.get(curso_id)
+    if curso:
+        db.session.delete(curso)
+        db.session.commit()
+        flash("Curso eliminado", "info")
+    return redirect(url_for('dashboard'))
 
 
 # ---------------------

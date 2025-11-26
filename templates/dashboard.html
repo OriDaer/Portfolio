@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
-  <h3>Editar perfil</h3>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card p-3">
-        <div class="mb-3">
-          <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" alt="foto" class="img-thumbnail" style="max-width:200px;">
-        </div>
-        <form method="POST" enctype="multipart/form-data">
-          {{ form.hidden_tag() }}
-          <div class="mb-3">
-            {{ form.nombre_publico.label(class="form-label") }}
-            {{ form.nombre_publico(class="form-control") }}
-          </div>
-          <div class="mb-3">
-            {{ form.profile_image.label(class="form-label") }}
-            {{ form.profile_image(class="form-control") }}
-          </div>
-          <div class="d-grid">
-            {{ form.submit(class="btn btn-success") }}
-          </div>
-        </form>
+<h3>Editar perfil</h3>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card p-3">
+      <div class="mb-3">
+        <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" alt="foto" class="img-thumbnail"
+          style="max-width:200px;">
       </div>
+      <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+          {{ form.nombre_publico.label(class="form-label") }}
+          {{ form.nombre_publico(class="form-control") }}
+        </div>
+        <div class="mb-3">
+          {{ form.profile_image.label(class="form-label") }}
+          {{ form.profile_image(class="form-control") }}
+        </div>
+        <div class="d-grid">
+          {{ form.submit(class="btn btn-success") }}
+        </div>
+      </form>
     </div>
   </div>
+</div>
+
 {% endblock %}

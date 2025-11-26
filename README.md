@@ -30,3 +30,5 @@ Incluye login con autenticación y hash de contraseña, base de datos en MySQL, 
     pip install flask flask_sqlalchemy flask_bcrypt flask_wtf pymysql
 4. Ejecuta la base de datos 
 5. Ejecuta la aplicacion y abrela en el navegador
+
+

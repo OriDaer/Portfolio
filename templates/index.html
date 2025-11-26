@@ -11,12 +11,29 @@
 </head>
 
 <body>
-  <h2>Bienvenido</h2>
-  <p>Esta es la página pública del portfolio. Para editar contenidos, inicia sesión.</p>
-  
+  <div class="banner d-flex justify-content-between align-items-center">
 
+    <div class="lado-izq">
+      <h1>{{ usuario.nombre_publico }}</h1>
+      <p class="text-muted">Desarrolladora web | front-end</p>
+      <h5 class="mt-3 contacto-titulo">Información de contacto</h5>
+      <ul class="list-unstyled contacto-lista">
+        <li><strong>Teléfono:</strong> 351-XXXXXXX</li>
+        <li><strong>Correo:</strong> oridaer@gmail.com</li>
+        <li><strong>Residencia:</strong> Poeta Lugones - Córdoba Capital, Argentina</li>
+      </ul>
 
-<!--graficos porcentuales-->
+    
+    </div>
+
+    <div class="lado-der">
+      <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" class="img-fluid" style="max-width: 280px;">
+    </div>
+
+  </div>
+
+  <!--graficos porcentuales-->
+  <!--
   <div class="eb-progress-bar-wrapper">
 
     <div class="eb-progress-bar html" style="--value: 85; --col: #FF5089">
@@ -27,6 +44,7 @@
       <h2>Html</h2>
     </label>
   </div>
+  
 
   <div class="eb-progress-bar-wrapper">
     <div class="eb-progress-bar css" style="--value: 91; --col: #FF1659">
@@ -59,6 +77,384 @@
       <h2>Python</h2>
     </label>
   </div>
+-->
+
+  <section class="skills-section">
+    <h1 class="skills-main-title">Hard &amp; Soft Skills</h1>
+
+    <div class="skills-block">
+      <h2 class="skills-subtitle">Habilidades Blandas</h2>
+      <div class="skills-grid">
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:90; --col:var(--pink);">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">90%</span>
+          </div>
+          <div class="skill-label">Empatía</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:75; --col:#9C27B0;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">75%</span>
+          </div>
+          <div class="skill-label">Creatividad</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:85; --col:#6200EE;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">85%</span>
+          </div>
+          <div class="skill-label">Observación</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:80; --col:#AA00FF;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">80%</span>
+          </div>
+          <div class="skill-label">Organización</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:90; --col:#D500F9;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">90%</span>
+          </div>
+          <div class="skill-label">Trabajo en equipo</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="skills-block">
+      <h2 class="skills-subtitle">Habilidades Técnicas</h2>
+      <div class="skills-grid">
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:80; --col:#3776AB;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">80%</span>
+          </div>
+          <div class="skill-label">Python</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:60; --col:#61DAFB;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">60%</span>
+          </div>
+          <div class="skill-label">React</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:80; --col:#E44D26;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">80%</span>
+          </div>
+          <div class="skill-label">HTML</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:85; --col:#F7DF1E;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">85%</span>
+          </div>
+          <div class="skill-label">JavaScript</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:80; --col:#1D6F42;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">90%</span>
+          </div>
+          <div class="skill-label">Excel / Word</div>
+        </div>
+            <div class="skill">
+          <div class="progress-circle" style="--value:70; --col:#53e497;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">70%</span>
+          </div>
+          <div class="skill-label">CSS</div>
+        </div>
+        
+    <div class="skills-block">
+      <h2 class="skills-subtitle"> Idiomas</h2>
+      <div class="skills-grid">
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:60; --col:#8d61fb;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">60%</span>
+          </div>
+          <div class="skill-label">Ingles (B1)</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:20; --col:#53c7e4;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">20%</span>
+          </div>
+          <div class="skill-label">Francés (A1)</div>
+        </div>
+
+        <div class="skill">
+          <div class="progress-circle" style="--value:100; --col:#1D6F42;">
+            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+            </svg>
+            <span class="progress-value">100%</span>
+          </div>
+          <div class="skill-label">Español (Nativo)</div>
+        </div>
+
+
+            
+      </div>
+  </section>
+
+<!--acerca de mi -->
+<section class="acerca-de-mi mt-4">
+  <div class="row">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="col-md-4 text-center">
+        <!-- FOTO -->
+        <img src="{{ url_for('static', filename='uploads/daer.png') }}"
+     class="img-fluid rounded-circle mb-3"
+     alt="Mi foto"
+     style="width:200px; height:200px; object-fit:cover;">
+
+
+        <!-- NOMBRE -->
+        <h3 class="mt-2">{{ usuario.nombre_publico}}</h3>
+
+        <!-- TÍTULO -->
+        <h5 class="text-muted">Técnica en Programación</h5>
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="col-md-8">
+        <h2>Acerca de mí</h2>
+
+        <p class="mt-3" style="white-space: pre-line;">
+          {{ usuario.acerca_de_mi }}
+        </p>
+
+        {% if session.get('user') %}
+        <form method="POST" action="{{ url_for('editar_acerca') }}" class="mt-3">
+            <textarea name="acerca" class="form-control" rows="5">{{ usuario.acerca_de_mi }}</textarea>
+            <button class="btn btn-primary mt-2">Guardar cambios</button>
+        </form>
+        {% endif %}
+    </div>
+
+  </div>
+</section>
+
+  <!--Experiencia Laboral-->
+  <h3>Experiencia Laboral</h3>
+
+  {% for exp in experiencias %}
+  <div class="card p-3 mb-3">
+
+    <h5>{{ exp.proyecto }}</h5>
+    <p>{{ exp.descripcion }}</p>
+    <p><strong>Puesto:</strong> {{ exp.puesto }}</p>
+    <p><strong>Periodo:</strong> {{ exp.periodo }}</p>
+    <p><strong>Logros:</strong> {{ exp.logros }}</p>
+
+    {% if session.get('user') %}
+    <form method="POST" action="{{ url_for('eliminar_experiencia', exp_id=exp.id) }}">
+      <button class="btn btn-danger btn-sm mt-2">Eliminar</button>
+    </form>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+  {%if session.get('user') %}
+  <div class="card p-3 mb-4">
+    <h5>Agregar nueva experiencia</h5>
+
+    <form method="POST" action="{{ url_for('agregar_experiencia') }}">
+      <input type="text" name="proyecto" class="form-control mb-2" placeholder="Proyecto">
+      <textarea name="descripcion" class="form-control mb-2" rows="2" placeholder="Descripción"></textarea>
+      <input type="text" name="puesto" class="form-control mb-2" placeholder="Puesto">
+      <input type="text" name="periodo" class="form-control mb-2" placeholder="Periodo">
+      <textarea name="logros" class="form-control mb-2" rows="2" placeholder="Logros"></textarea>
+
+      <button class="btn btn-success">Agregar</button>
+    </form>
+  </div>
+  {% endif %}
+
+  <section class="mt-5">
+    <h2>Educación</h2>
+    {%if not session.get('user') %}
+    <!-- 1. Formación -->
+    <h4 class="mt-4">Formación</h4>
+    <div class="list-group">
+
+      {% for edu in educacion %}
+      <div class="list-group-item d-flex align-items-start">
+        <!-- Logo -->
+        <img src="{{ url_for('uploads', filename=edu.logo) }}" alt="logo" class="me-3"
+          style="width:60px; height:60px; object-fit:cover;">
+
+        <div>
+          <h5 class="mb-1">{{ edu.titulo }}</h5>
+          <p class="mb-0"><strong>{{ edu.institucion }}</strong></p>
+          <p class="mb-0">{{ edu.periodo }}</p>
+          {% if edu.estado %}
+          <span class="badge bg-info">{{ edu.estado }}</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {%endif%}
+    {% if session.get('user') %}
+    <!--FORMACION/EDUCACION-->
+
+    <h4>Formación cargada</h4>
+    {% for e in educacion %}
+    <div class="card p-3 mb-3 d-flex flex-row align-items-center">
+
+      {% if e.logo %}
+      <img src="{{ url_for('uploads', filename=e.logo) }}" style="width:60px;height:60px;object-fit:cover;"
+        class="me-3">
+      {% endif %}
+
+      <div class="flex-grow-1">
+        <h5>{{ e.titulo }}</h5>
+        <p class="mb-0">{{ e.institucion }}</p>
+        <p class="mb-0">{{ e.periodo }}</p>
+        <span class="badge bg-info">{{ e.estado }}</span>
+      </div>
+
+      <form method="POST" action="{{ url_for('eliminar_educacion', edu_id=e.id) }}">
+        <button class="btn btn-danger btn-sm">Eliminar</button>
+      </form>
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!---form agregar educacion/formacion-->
+    {%if session.get('user')%}
+    <div class="card p-3 mb-4">
+      <h5>Agregar nueva formacion</h5>
+      <form method="POST" enctype="multipart/form-data" action="{{ url_for('agregar_educacion') }}">
+        <input type="text" name="titulo" class="form-control mb-2" placeholder="Título" required>
+        <input type="text" name="institucion" class="form-control mb-2" placeholder="Institución" required>
+        <input type="text" name="periodo" class="form-control mb-2" placeholder="Periodo (ej:2020 - presente)">
+        <input type="text" name="estado" class="form-control mb-2" placeholder="Estado (finalizado/ en curso)">
+
+        <label class="mt-2">Logo de la institución</label>
+        <input type="file" name="logo" class="form-control mb-2">
+        <button class="btn btn-success">Agregar</button>
+      </form>
+    </div>
+    {%endif%}
+
+  </section>
+  <!-- 2. Cursos y certificaciones -->
+  <h4 class="mt-4">Cursos y Certificaciones</h4>
+  {%if not session.get ('user')%}
+  <ul class="list-group">
+
+    {% for curso in cursos %}
+    <li class="list-group-item">
+      <strong>{{ curso.nombre }}</strong><br>
+      {{ curso.institucion }} – {{ curso.periodo }}<br>
+
+      {% if curso.certificacion_url %}
+      <a href="{{ curso.certificacion_url }}" target="_blank">Ver certificación</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if session.get('user') %}
+  <h4 class="mt-4">Cursos cargados</h4>
+
+  {% for c in cursos %}
+  <div class="card p-3 mb-3 d-flex flex-row align-items-center">
+
+    <div class="flex-grow-1">
+      <h5>{{ c.nombre }}</h5>
+      <p class="mb-0"><strong>{{ c.institucion }}</strong></p>
+      <p class="mb-0">{{ c.periodo }}</p>
+
+      {% if c.certificacion_url %}
+      <a href="{{ c.certificacion_url }}" target="_blank">Ver certificación</a>
+      {% endif %}
+    </div>
+
+    <form method="POST" action="{{ url_for('eliminar_curso', curso_id=c.id) }}">
+      <button class="btn btn-danger btn-sm">Eliminar</button>
+    </form>
+
+  </div>
+  {% endfor %}
+
+  <div class="card p-3 mb-4">
+    <h5>Agregar nuevo curso</h5>
+    <form method="POST" action="{{ url_for('agregar_curso') }}">
+      <input type="text" name="nombre" class="form-control mb-2" placeholder="Nombre del curso" required>
+      <input type="text" name="institucion" class="form-control mb-2" placeholder="Institución" required>
+      <input type="text" name="periodo" class="form-control mb-2" placeholder="Periodo">
+      <input type="text" name="certificacion_url" class="form-control mb-2"
+        placeholder="URL del certificado (opcional)">
+      <button class="btn btn-success">Agregar</button>
+    </form>
+  </div>
+
+  {% endif %}
+
 </body>
 
 </html>

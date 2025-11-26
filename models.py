@@ -29,6 +29,7 @@ class Usuario(BaseModel):
     password = db.Column(db.String(200), nullable=False)  # hashed password
     nombre_publico = db.Column(db.String(120), default='Tu Nombre')
     profile_image = db.Column(db.String(255), default='default_profile.png')
+    acerca_de_mi = db.Column(db.Text, default="¡Hola! Soy desarrolladora web con enfoque en front-end.")
 
     def check_password(self, bcrypt, plain_password):
         """Envuelve la comprobación de contraseña para encapsular la lógica."""
@@ -52,3 +53,43 @@ class AdminUser(Usuario):
     def can_edit(self):
         # sobrescribimos/extendemos método (polimorfismo simple)
         return True
+
+# -----------------------------
+# Clase Persona (para mostrar info pública)
+# -----------------------------
+class Persona(db.Model):
+    __tablename__ = 'persona'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre_completo = db.Column(db.String(150), nullable=False)
+    contacto_email = db.Column(db.String(150), nullable=False)
+    telefono = db.Column(db.String(200), nullable=False)
+    direccion = db.Column(db.String(255), nullable=False)
+
+
+
+class Experiencia(db.Model):
+    __tablename__ = 'experiencia'
+    id = db.Column(db.Integer, primary_key=True)
+    proyecto = db.Column(db.String(200), nullable=False)
+    descripcion = db.Column(db.Text, nullable=False)
+    puesto = db.Column(db.String(200), nullable=False)
+    periodo = db.Column(db.String(120), nullable=False)
+    logros = db.Column(db.Text, nullable=False)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'))
+
+class Educacion(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
+    titulo = db.Column(db.String(200), nullable=False)
+    institucion = db.Column(db.String(200), nullable=False)
+    logo = db.Column(db.String(255))
+    periodo = db.Column(db.String(150))
+    estado = db.Column(db.String(100))
+
+class Curso(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
+    nombre = db.Column(db.String(200), nullable=False)
+    institucion = db.Column(db.String(200), nullable=False)
+    periodo = db.Column(db.String(150))
+    certificacion_url = db.Column(db.String(255))

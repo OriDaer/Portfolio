@@ -12,3 +12,10 @@ class ProfileEditForm(FlaskForm):
     nombre_publico = StringField('Nombre público', validators=[DataRequired(), Length(max=120)])
     profile_image = FileField('Foto de perfil', validators=[FileAllowed(['png','jpg','jpeg','gif'], 'Solo imágenes')])
     submit = SubmitField('Guardar')
+
+class EducacionForm(FlaskForm):
+    titulo = StringField('Título', validators=[DataRequired()])
+    institucion = StringField('Institución', validators=[DataRequired()])
+    periodo = StringField("Periodo")
+    estado = StringField("Estado")
+    logo =FileField("Logo" , validators=[FileAllowed(['png','jpg','jpeg','gif'], 'Solo imágenes')])

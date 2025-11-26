@@ -1,3 +1,15 @@
+/*info contacto inicio*/
+.contacto-titulo {
+    font-size: 0.9rem;      /* más chico que el h5 normal */
+    margin-bottom: 4px;
+}
+
+.contacto-lista {
+    font-size: 0.85rem;     /* reduce tamaño de los <li> */
+    line-height: 1.2;
+}
+
+
 :root {
   --pink: #ff8fb2;
   --font: 'Inter', sans-serif;
@@ -39,7 +51,7 @@ body {
 
 
 /*graficos porcentuales*/
-@property --eb-progress-value {
+/*@property --eb-progress-value {
   syntax: "<integer>";
   inherits: false;
   initial-value: 0;
@@ -59,7 +71,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   background-color: #f2f2f2;
-  max-width: 800px;
+  
   height: 100vh;
 }
 
@@ -149,9 +161,130 @@ h2 {
   font-family: "integralcfmedium" !important;
   margin-top: 6px;
 }
+h1 {
+  font-family: "integralcfbold" !important;
+}
 
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 64px;
   }
+}
+*/
+/*hard and soft skills*/
+/* SKILLS: títulos y grid */
+.skills-section {
+  padding: 24px;
+  font-family: var(--font);
+  color: #222;
+}
+
+.skills-main-title {
+  font-size: 28px;
+  margin: 0 0 12px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.skills-block {
+  margin-top: 18px;
+  background: transparent;
+}
+
+.skills-subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 6px 0 12px;
+  text-transform: uppercase;
+  color: #111;
+}
+
+/* Grid responsivo de tortas */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 18px 26px;
+  align-items: center;
+}
+
+/* Skill item */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skill-label {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* CÍRCULO SVG */
+.progress-circle {
+  --size: 90px;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-items: center;
+  position: relative;
+  --circ: 113; /* aproximado para r=18 -> 2πr ≈ 113 */
+}
+
+/* SVG ocupa todo el contenedor */
+.progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* empezar desde arriba */
+  overflow: visible;
+}
+
+/* fondo tenue del anillo */
+.progress-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 6;
+}
+
+/* anillo principal: usamos la variable --col y --value */
+.progress-ring {
+  fill: none;
+  stroke: var(--col, var(--pink));
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: var(--circ);
+  /* comienzo con offset = circ (vacío) y animamos hasta el target */
+  stroke-dashoffset: var(--circ);
+  transition: stroke-dashoffset 1.6s cubic-bezier(.22,.9,.3,1);
+  /* para que la animación se dispare al cargar via clase JS-less: animamos con keyframes */
+  animation: ring-fill 1.6s cubic-bezier(.22,.9,.3,1) forwards;
+}
+
+/* texto central con % */
+.progress-value {
+  position: absolute;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+  pointer-events: none;
+}
+
+/* Animación: desde circ (0%) hasta el valor calculado */
+@keyframes ring-fill {
+  from {
+    stroke-dashoffset: var(--circ);
+  }
+  to {
+    stroke-dashoffset: calc( var(--circ) - (var(--circ) * ( var(--value) / 100 ) ) );
+  }
+}
+
+/* mejora visual en pantallas pequeñas */
+@media (max-width: 480px) {
+  .progress-circle { --size: 76px; }
+  .skills-main-title { font-size: 22px; }
+  .skill-label { font-size: 0.9rem; }
 }
