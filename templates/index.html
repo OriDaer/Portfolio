@@ -457,48 +457,48 @@
 
 
 
-  <!------PROYECTOSSSSS-------->
+  <!------PROYECTOSSSSS--------><!------ PROYECTOS -------->
 <h3>Proyectos</h3>
 
 {% for p in proyectos %}
 <div class="card p-3 mb-3 d-flex flex-row align-items-center">
 
-    {% if p.imagen %}
-    <img src="{{ url_for('uploads', filename=p.imagen) }}" style="width:60px;height:60px;object-fit:cover;" class="me-3">
+  {% if p.imagen %}
+  <img src="{{ url_for('uploads', filename=p.imagen) }}" style="width:60px;height:60px;object-fit:cover;" class="me-3">
+  {% endif %}
+
+  <div class="flex-grow-1">
+    <h5>{{ p.titulo }}</h5>
+    <p>{{ p.descripcion }}</p>
+    <p><strong>Fecha:</strong> {{ p.fecha }}</p>
+    {% if p.github_url %}
+    <p><a href="{{ p.github_url }}" target="_blank">GitHub</a></p>
     {% endif %}
+  </div>
 
-    <div class="flex-grow-1">
-        <h5>{{ p.titulo }}</h5>
-        <p>{{ p.descripcion }}</p>
-        <p><strong>Fecha:</strong> {{ p.fecha }}</p>
-        {% if p.github_url %}
-        <p><a href="{{ p.github_url }}" target="_blank">GitHub</a></p>
-        {% endif %}
-    </div>
+  {% if session.get('user') %}
+  <div class="d-flex">
+    <form method="POST" action="{{ url_for('eliminar_proyecto', proy_id=p.id) }}" class="me-2">
+      {{ form_eliminar_proyecto.hidden_tag() }}
+      <button class="btn btn-danger btn-sm">Eliminar</button>
+    </form>
 
-    {% if session.get('user') %}
-    <div class="d-flex">
-        <form method="POST" action="{{ url_for('eliminar_proyecto', proy_id=p.id) }}" class="me-2">
-            {{ form_eliminar_proyecto.hidden_tag() }}
-            <button class="btn btn-danger btn-sm">Eliminar</button>
-        </form>
-
-        <!-- Botón Editar -->
-        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditarProy{{ p.id }}">
-            Editar
-        </button>
-    </div>
-    {% endif %}
+    <!-- Botón Editar -->
+    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditarProy{{ p.id }}">
+      Editar
+    </button>
+  </div>
+  {% endif %}
 
 </div>
 
 {% if session.get('user') %}
-<!-- Modal Editar -->
+<!-- Modal Editar Proyecto -->
 <div class="modal fade" id="modalEditarProy{{ p.id }}" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <form method="POST" enctype="multipart/form-data" action="{{ url_for('modificar_proyecto', proy_id=p.id) }}">
-        {{ form_editar.hidden_tag() }}
+        {{ form_modif_proyect.hidden_tag() }}
 
         <div class="modal-header">
           <h5 class="modal-title">Editar Proyecto</h5>
@@ -506,11 +506,11 @@
         </div>
 
         <div class="modal-body">
-          {{ form_editar.titulo(class_="form-control mb-2", value=p.titulo) }}
-          {{ form_editar.descripcion(class_="form-control mb-2", value=p.descripcion) }}
-          {{ form_editar.fecha(class_="form-control mb-2", value=p.fecha) }}
-          {{ form_editar.github_url(class_="form-control mb-2", value=p.github_url) }}
-          {{ form_editar.imagen(class_="form-control mb-2") }}
+          {{ form_modif_proyect.titulo(class_="form-control mb-2", value=p.titulo) }}
+          {{ form_modif_proyect.descripcion(class_="form-control mb-2", value=p.descripcion) }}
+          {{ form_modif_proyect.fecha(class_="form-control mb-2", value=p.fecha) }}
+          {{ form_modif_proyect.github_url(class_="form-control mb-2", value=p.github_url) }}
+          {{ form_modif_proyect.imagen(class_="form-control mb-2") }}
 
           {% if p.imagen %}
           <img src="{{ url_for('uploads', filename=p.imagen) }}" style="width:60px;height:60px;object-fit:cover;" class="mt-2">
@@ -518,7 +518,7 @@
         </div>
 
         <div class="modal-footer">
-          {{ form_editar.submit(class_="btn btn-primary") }}
+          {{ form_modif_proyect.submit(class_="btn btn-primary") }}
         </div>
       </form>
     </div>
@@ -527,7 +527,7 @@
 {% endif %}
 {% endfor %}
 
-<!-- Formulario agregar nuevo proyecto -->
+<!-- Formulario Agregar Proyecto -->
 {% if session.get('user') %}
 <div class="card p-3 mb-4">
   <h5>Agregar nuevo proyecto</h5>
@@ -542,7 +542,6 @@
   </form>
 </div>
 {% endif %}
-
 
 </body>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,70 +15,65 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block head %}{% endblock %}
 </head>
+
 <body>
   <header class="site-header d-flex align-items-center justify-content-between px-3 py-2">
     <div class="d-flex align-items-center header-left">
       <!-- FOTO (izquierda) -->
-  {% if usuario %}
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/tu-url-aqui" target="_blank">
-    <img src="{{ url_for('static', filename='uploads/linkedinn.png') }}" 
-         alt="LinkedIn" 
-         class="header-photo me-2">
-  </a>
+      {% if usuario %}
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/tu-url-aqui" target="_blank">
+        <img src="{{ url_for('static', filename='uploads/linkedinn.png') }}" alt="LinkedIn" class="header-photo me-2">
+      </a>
 
-  <!-- GitHub -->
-  <a href="https://github.com/OriDaer" target="_blank">
-    <img src="{{ url_for('static', filename='uploads/github.png') }}" 
-         alt="GitHub" 
-         class="header-photo me-2">
-  </a>
+      <!-- GitHub -->
+      <a href="https://github.com/OriDaer" target="_blank">
+        <img src="{{ url_for('static', filename='uploads/github.png') }}" alt="GitHub" class="header-photo me-2">
+      </a>
 
-  <!-- Foto de perfil -->
-  <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" 
-       alt="perfil" 
-       class="header-photo me-2">
+      <!-- Foto de perfil -->
+      <img src="{{ url_for('uploads', filename=usuario.profile_image) }}" alt="perfil" class="header-photo me-2">
 
-  <div class="header-name">{{ usuario.nombre_publico }} - Portfolio</div>
+      <div class="header-name">{{ usuario.nombre_publico }} - Portfolio</div>
 
-{% else %}
-
-  <a href="https://github.com/OriDaer" target="_blank">
-    <img src="{{ url_for('static', filename='uploads/github.png') }}" 
-        alt="GitHub" 
-        class="header-photo me-2">
-  </a>
-
-  <img src="{{ url_for('static', filename='uploads/default_profile.png') }}" 
-      alt="perfil" 
-      class="header-photo me-2">
-  <div class="header-name">Tu Nombre - Portfolio</div>
-
-{% endif %}
-
-
-    <div class="header-right">
-      {% if session.get('user') %}
-        <a href="{{ url_for('index') }}" class="btn btn-sm btn-outline-dark me-2">Inicio</a>
-        <a href="{{ url_for('dashboard') }}" class="btn btn-sm btn-outline-dark me-2">Dashboard</a>
-        <a href="{{ url_for('logout') }}" class="btn btn-sm btn-secondary">Logout</a>
       {% else %}
-        <!-- Botón rosita a la derecha -->
-        <a href="{{ url_for('login') }}" class="btn btn-sm btn-pink">Login</a>
+
+      <a href="https://github.com/OriDaer" target="_blank">
+        <img src="{{ url_for('static', filename='uploads/github.png') }}" alt="GitHub" class="header-photo me-2">
+      </a>
+
+      <img src="{{ url_for('static', filename='uploads/default_profile.png') }}" alt="perfil" class="header-photo me-2">
+      <div class="header-name">Tu Nombre - Portfolio</div>
+
       {% endif %}
-    </div>
+
+
+      <div class="header-right ms-auto">
+  {% if session.get('user') %}
+    <a href="{{ url_for('index') }}" class="btn btn-sm btn-outline-dark me-2">Inicio</a>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-sm btn-outline-dark me-2">Dashboard</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-sm btn-secondary me-2">Logout</a>
+  {% else %}
+    <a href="{{ url_for('login') }}" class="btn btn-sm btn-pink me-2">Login</a>
+  {% endif %}
+  
+  <!-- Botón descargar CV -->
+  <a href="{{ url_for('descargar_cv') }}" class="btn btn-sm btn-pink">Descargar CV</a>
+</div>
+
+
   </header>
 
   <main class="container my-4">
     {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, msg in messages %}
-          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-            {{ msg }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
+    {% if messages %}
+    {% for category, msg in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
 
     {% block content %}{% endblock %}
@@ -85,4 +81,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

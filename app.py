@@ -66,6 +66,13 @@ def inicializar_app():
 # ---------------------
 # Rutas
 # ---------------------
+
+@app.route('/descargar-cv')
+def descargar_cv():
+    # Ajusta el nombre y la ubicación exacta de tu PDF
+    cv_path = os.path.join(app.root_path, 'static/uploads')
+    return send_from_directory(cv_path, 'CV_Daer_Oriana_Berenice.pdf', as_attachment=True)
+
 @app.route('/')
 def index():
     usuario = Usuario.query.filter_by(username="daer").first()
@@ -82,16 +89,18 @@ def index():
     form_elim_curso= EliminarCursoForm()
     form_modif_curso = EditarCursoForm()
     form_curso=CursoForm()
+    proyectos= Proyecto.query.all()
     form_proyect= ProyectoForm()
     form_modif_proyect=ProyectoForm()
-
+    form_eliminar_proyecto=ProyectoForm()
 
     return render_template('index.html', usuario=usuario , experiencias=experiencias,add_form=add_form,edit_form=edit_form,
     delete_forms=delete_forms, form=form,form_eliminar=form_eliminar,
     form_editar=form_editar,educacion=educacion,
     cursos=cursos,form_elim_curso=form_elim_curso,
     form_curso=form_curso,form_modif_curso=form_modif_curso,
-    form_proyect=form_proyect,form_modif_proyect=form_modif_proyect
+    form_proyect=form_proyect,proyectos=proyectos,
+    form_modif_proyect=form_modif_proyect,form_eliminar_proyecto=form_eliminar_proyecto
     )
 
 
@@ -342,7 +351,7 @@ def modificar_curso(curso_id):
 
 
 # ------------------- Proyectos -------------------
-
+#
 @app.route('/agregar_proyecto', methods=['POST'])
 @login_required
 def agregar_proyecto():
