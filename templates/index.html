@@ -18,12 +18,10 @@
       <p class="text-muted">Desarrolladora web | front-end</p>
       <h5 class="mt-3 contacto-titulo">Información de contacto</h5>
       <ul class="list-unstyled contacto-lista">
-        <li><strong>Teléfono:</strong> 351-XXXXXXX</li>
+        <li><strong>Teléfono:</strong> 351-34862..</li>
         <li><strong>Correo:</strong> oridaer@gmail.com</li>
         <li><strong>Residencia:</strong> Poeta Lugones - Córdoba Capital, Argentina</li>
       </ul>
-
-    
     </div>
 
     <div class="lado-der">
@@ -78,7 +76,7 @@
     </label>
   </div>
 -->
-
+  <!---------HARD AND SOFT SKILLS-------->
   <section class="skills-section">
     <h1 class="skills-main-title">Hard &amp; Soft Skills</h1>
 
@@ -202,7 +200,7 @@
           </div>
           <div class="skill-label">Excel / Word</div>
         </div>
-            <div class="skill">
+        <div class="skill">
           <div class="progress-circle" style="--value:70; --col:#53e497;">
             <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
               <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
@@ -212,60 +210,58 @@
           </div>
           <div class="skill-label">CSS</div>
         </div>
-        
-    <div class="skills-block">
-      <h2 class="skills-subtitle"> Idiomas</h2>
-      <div class="skills-grid">
 
-        <div class="skill">
-          <div class="progress-circle" style="--value:60; --col:#8d61fb;">
-            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
-              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
-              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
-            </svg>
-            <span class="progress-value">60%</span>
+        <div class="skills-block">
+          <h2 class="skills-subtitle"> Idiomas</h2>
+          <div class="skills-grid">
+
+            <div class="skill">
+              <div class="progress-circle" style="--value:60; --col:#8d61fb;">
+                <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+                  <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+                  <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span class="progress-value">60%</span>
+              </div>
+              <div class="skill-label">Ingles (B1)</div>
+            </div>
+
+            <div class="skill">
+              <div class="progress-circle" style="--value:20; --col:#53c7e4;">
+                <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+                  <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+                  <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span class="progress-value">20%</span>
+              </div>
+              <div class="skill-label">Francés (A1)</div>
+            </div>
+
+            <div class="skill">
+              <div class="progress-circle" style="--value:100; --col:#1D6F42;">
+                <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
+                  <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
+                  <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span class="progress-value">100%</span>
+              </div>
+              <div class="skill-label">Español (Nativo)</div>
+            </div>
+
+
+
           </div>
-          <div class="skill-label">Ingles (B1)</div>
-        </div>
-
-        <div class="skill">
-          <div class="progress-circle" style="--value:20; --col:#53c7e4;">
-            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
-              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
-              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
-            </svg>
-            <span class="progress-value">20%</span>
-          </div>
-          <div class="skill-label">Francés (A1)</div>
-        </div>
-
-        <div class="skill">
-          <div class="progress-circle" style="--value:100; --col:#1D6F42;">
-            <svg viewBox="0 0 44 44" class="progress-svg" aria-hidden="true">
-              <circle class="progress-bg" cx="22" cy="22" r="18"></circle>
-              <circle class="progress-ring" cx="22" cy="22" r="18"></circle>
-            </svg>
-            <span class="progress-value">100%</span>
-          </div>
-          <div class="skill-label">Español (Nativo)</div>
-        </div>
-
-
-            
-      </div>
   </section>
 
-<!--acerca de mi -->
-<section class="acerca-de-mi mt-4">
-  <div class="row">
+  <!------------ACERCA DE MI--------->
+  <section class="acerca-de-mi mt-4">
+    <div class="row">
 
-    <!-- COLUMNA IZQUIERDA -->
-    <div class="col-md-4 text-center">
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="col-md-4 text-center">
         <!-- FOTO -->
-        <img src="{{ url_for('static', filename='uploads/daer.png') }}"
-     class="img-fluid rounded-circle mb-3"
-     alt="Mi foto"
-     style="width:200px; height:200px; object-fit:cover;">
+        <img src="{{ url_for('static', filename='uploads/daer.png') }}" class="img-fluid rounded-circle mb-3"
+          alt="Mi foto" style="width:200px; height:200px; object-fit:cover;">
 
 
         <!-- NOMBRE -->
@@ -273,10 +269,10 @@
 
         <!-- TÍTULO -->
         <h5 class="text-muted">Técnica en Programación</h5>
-    </div>
+      </div>
 
-    <!-- COLUMNA DERECHA -->
-    <div class="col-md-8">
+      <!-- COLUMNA DERECHA -->
+      <div class="col-md-8">
         <h2>Acerca de mí</h2>
 
         <p class="mt-3" style="white-space: pre-line;">
@@ -285,140 +281,105 @@
 
         {% if session.get('user') %}
         <form method="POST" action="{{ url_for('editar_acerca') }}" class="mt-3">
-            <textarea name="acerca" class="form-control" rows="5">{{ usuario.acerca_de_mi }}</textarea>
-            <button class="btn btn-primary mt-2">Guardar cambios</button>
+          <textarea name="acerca" class="form-control" rows="5">{{ usuario.acerca_de_mi }}</textarea>
+          <button class="btn btn-primary mt-2">Guardar cambios</button>
         </form>
         {% endif %}
-    </div>
+      </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
   <!--Experiencia Laboral-->
   <h3>Experiencia Laboral</h3>
 
   {% for exp in experiencias %}
-  <div class="card p-3 mb-3">
+  <div class="card p-3 mb-3 d-flex flex-row align-items-center">
 
-    <h5>{{ exp.proyecto }}</h5>
-    <p>{{ exp.descripcion }}</p>
-    <p><strong>Puesto:</strong> {{ exp.puesto }}</p>
-    <p><strong>Periodo:</strong> {{ exp.periodo }}</p>
-    <p><strong>Logros:</strong> {{ exp.logros }}</p>
+    <div class="flex-grow-1">
+      <h5>{{ exp.proyecto }}</h5>
+      <p>{{ exp.descripcion }}</p>
+      <p><strong>Puesto:</strong> {{ exp.puesto }}</p>
+      <p><strong>Periodo:</strong> {{ exp.periodo }}</p>
+      <p><strong>Logros:</strong> {{ exp.logros }}</p>
+    </div>
 
     {% if session.get('user') %}
-    <form method="POST" action="{{ url_for('eliminar_experiencia', exp_id=exp.id) }}">
-      <button class="btn btn-danger btn-sm mt-2">Eliminar</button>
+    <!-- Botón ELIMINAR -->
+    <form method="POST" action="{{ url_for('eliminar_experiencia', exp_id=exp.id) }}" class="me-2">
+      {{ delete_forms[exp.id].hidden_tag() }}
+      {{ delete_forms[exp.id].submit(class="btn btn-danger btn-sm") }}
     </form>
+
+    <!-- Botón MODIFICAR -->
+    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditarExp{{ exp.id }}">
+      Editar
+    </button>
+
     {% endif %}
-
   </div>
-  {% endfor %}
-  {%if session.get('user') %}
-  <div class="card p-3 mb-4">
-    <h5>Agregar nueva experiencia</h5>
 
-    <form method="POST" action="{{ url_for('agregar_experiencia') }}">
-      <input type="text" name="proyecto" class="form-control mb-2" placeholder="Proyecto">
-      <textarea name="descripcion" class="form-control mb-2" rows="2" placeholder="Descripción"></textarea>
-      <input type="text" name="puesto" class="form-control mb-2" placeholder="Puesto">
-      <input type="text" name="periodo" class="form-control mb-2" placeholder="Periodo">
-      <textarea name="logros" class="form-control mb-2" rows="2" placeholder="Logros"></textarea>
+  {% if session.get('user') %}
+  <!-- Modal EDITAR Experiencia -->
+  <div class="modal fade" id="modalEditarExp{{ exp.id }}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form method="POST" action="{{ url_for('modificar_experiencia', exp_id=exp.id) }}">
+          {{ edit_form.hidden_tag() }}
 
-      <button class="btn btn-success">Agregar</button>
-    </form>
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Experiencia</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <label>Proyecto</label>
+            {{ edit_form.proyecto(class="form-control mb-2", value=exp.proyecto) }}
+
+            <label>Puesto</label>
+            {{ edit_form.puesto(class="form-control mb-2", value=exp.puesto) }}
+
+            <label>Periodo</label>
+            {{ edit_form.periodo(class="form-control mb-2", value=exp.periodo) }}
+
+            <label>Descripción</label>
+            {{ edit_form.descripcion(class="form-control mb-2", value=exp.descripcion) }}
+
+            <label>Logros</label>
+            {{ edit_form.logros(class="form-control mb-2", value=exp.logros) }}
+          </div>
+
+          <div class="modal-footer">
+            {{ edit_form.submit(class="btn btn-primary") }}
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   {% endif %}
+  {% endfor %}
 
-  <section class="mt-5">
-    <h2>Educación</h2>
-    {%if not session.get('user') %}
-    <!-- 1. Formación -->
-    <h4 class="mt-4">Formación</h4>
-    <div class="list-group">
 
-      {% for edu in educacion %}
-      <div class="list-group-item d-flex align-items-start">
-        <!-- Logo -->
-        <img src="{{ url_for('uploads', filename=edu.logo) }}" alt="logo" class="me-3"
-          style="width:60px; height:60px; object-fit:cover;">
 
-        <div>
-          <h5 class="mb-1">{{ edu.titulo }}</h5>
-          <p class="mb-0"><strong>{{ edu.institucion }}</strong></p>
-          <p class="mb-0">{{ edu.periodo }}</p>
-          {% if edu.estado %}
-          <span class="badge bg-info">{{ edu.estado }}</span>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    {%endif%}
-    {% if session.get('user') %}
-    <!--FORMACION/EDUCACION-->
+  <!-------Cursos y certificaciones------>
 
-    <h4>Formación cargada</h4>
-    {% for e in educacion %}
-    <div class="card p-3 mb-3 d-flex flex-row align-items-center">
-
-      {% if e.logo %}
-      <img src="{{ url_for('uploads', filename=e.logo) }}" style="width:60px;height:60px;object-fit:cover;"
-        class="me-3">
-      {% endif %}
-
-      <div class="flex-grow-1">
-        <h5>{{ e.titulo }}</h5>
-        <p class="mb-0">{{ e.institucion }}</p>
-        <p class="mb-0">{{ e.periodo }}</p>
-        <span class="badge bg-info">{{ e.estado }}</span>
-      </div>
-
-      <form method="POST" action="{{ url_for('eliminar_educacion', edu_id=e.id) }}">
-        <button class="btn btn-danger btn-sm">Eliminar</button>
-      </form>
-
-    </div>
-    {% endfor %}
-    {% endif %}
-
-    <!---form agregar educacion/formacion-->
-    {%if session.get('user')%}
-    <div class="card p-3 mb-4">
-      <h5>Agregar nueva formacion</h5>
-      <form method="POST" enctype="multipart/form-data" action="{{ url_for('agregar_educacion') }}">
-        <input type="text" name="titulo" class="form-control mb-2" placeholder="Título" required>
-        <input type="text" name="institucion" class="form-control mb-2" placeholder="Institución" required>
-        <input type="text" name="periodo" class="form-control mb-2" placeholder="Periodo (ej:2020 - presente)">
-        <input type="text" name="estado" class="form-control mb-2" placeholder="Estado (finalizado/ en curso)">
-
-        <label class="mt-2">Logo de la institución</label>
-        <input type="file" name="logo" class="form-control mb-2">
-        <button class="btn btn-success">Agregar</button>
-      </form>
-    </div>
-    {%endif%}
-
-  </section>
-  <!-- 2. Cursos y certificaciones -->
   <h4 class="mt-4">Cursos y Certificaciones</h4>
-  {%if not session.get ('user')%}
-  <ul class="list-group">
 
+  {% if not session.get('user') %}
+  <ul class="list-group">
     {% for curso in cursos %}
     <li class="list-group-item">
       <strong>{{ curso.nombre }}</strong><br>
-      {{ curso.institucion }} – {{ curso.periodo }}<br>
+      {{ curso.institucion }} - {{ curso.periodo }}<br>
 
-      {% if curso.certificacion_url %}
-      <a href="{{ curso.certificacion_url }}" target="_blank">Ver certificación</a>
-      {% endif %}
     </li>
     {% endfor %}
   </ul>
   {% endif %}
 
+
   {% if session.get('user') %}
+
   <h4 class="mt-4">Cursos cargados</h4>
 
   {% for c in cursos %}
@@ -428,32 +389,160 @@
       <h5>{{ c.nombre }}</h5>
       <p class="mb-0"><strong>{{ c.institucion }}</strong></p>
       <p class="mb-0">{{ c.periodo }}</p>
-
-      {% if c.certificacion_url %}
-      <a href="{{ c.certificacion_url }}" target="_blank">Ver certificación</a>
-      {% endif %}
     </div>
 
+    <!-- Botón EDITAR -->
+    <button class="btn btn-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#modalEditarCurso{{ c.id }}">
+      Editar
+    </button>
+
+    <!-- Botón ELIMINAR -->
     <form method="POST" action="{{ url_for('eliminar_curso', curso_id=c.id) }}">
+      {{ form_elim_curso.csrf_token }}
       <button class="btn btn-danger btn-sm">Eliminar</button>
     </form>
 
   </div>
+
+  <!-- Modal editar curso -->
+  <div class="modal fade" id="modalEditarCurso{{ c.id }}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <form method="POST" action="{{ url_for('modificar_curso', curso_id=c.id) }}">
+          {{ form_modif_curso.hidden_tag() }}
+
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Curso</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+
+            {{ form_modif_curso.nombre(class="form-control mb-2", value=c.nombre) }}
+            {{ form_modif_curso.institucion(class="form-control mb-2", value=c.institucion) }}
+            {{ form_modif_curso.periodo(class="form-control mb-2", value=c.periodo) }}
+
+          </div>
+
+          <div class="modal-footer">
+            {{ form_modif_curso.submit(class="btn btn-primary") }}
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
   {% endfor %}
 
+  <!-- AGREGAR CURSO -->
   <div class="card p-3 mb-4">
     <h5>Agregar nuevo curso</h5>
+
     <form method="POST" action="{{ url_for('agregar_curso') }}">
-      <input type="text" name="nombre" class="form-control mb-2" placeholder="Nombre del curso" required>
-      <input type="text" name="institucion" class="form-control mb-2" placeholder="Institución" required>
-      <input type="text" name="periodo" class="form-control mb-2" placeholder="Periodo">
-      <input type="text" name="certificacion_url" class="form-control mb-2"
-        placeholder="URL del certificado (opcional)">
-      <button class="btn btn-success">Agregar</button>
+      {{ form_curso.csrf_token }}
+
+      {{ form_curso.nombre(class="form-control mb-2", placeholder="Nombre del curso") }}
+      {{ form_curso.institucion(class="form-control mb-2", placeholder="Institución") }}
+      {{ form_curso.periodo(class="form-control mb-2", placeholder="Periodo") }}
+
+      {{ form_curso.submit(class="btn btn-success") }}
     </form>
   </div>
 
   {% endif %}
+
+
+
+
+  <!------PROYECTOSSSSS-------->
+<h3>Proyectos</h3>
+
+{% for p in proyectos %}
+<div class="card p-3 mb-3 d-flex flex-row align-items-center">
+
+    {% if p.imagen %}
+    <img src="{{ url_for('uploads', filename=p.imagen) }}" style="width:60px;height:60px;object-fit:cover;" class="me-3">
+    {% endif %}
+
+    <div class="flex-grow-1">
+        <h5>{{ p.titulo }}</h5>
+        <p>{{ p.descripcion }}</p>
+        <p><strong>Fecha:</strong> {{ p.fecha }}</p>
+        {% if p.github_url %}
+        <p><a href="{{ p.github_url }}" target="_blank">GitHub</a></p>
+        {% endif %}
+    </div>
+
+    {% if session.get('user') %}
+    <div class="d-flex">
+        <form method="POST" action="{{ url_for('eliminar_proyecto', proy_id=p.id) }}" class="me-2">
+            {{ form_eliminar_proyecto.hidden_tag() }}
+            <button class="btn btn-danger btn-sm">Eliminar</button>
+        </form>
+
+        <!-- Botón Editar -->
+        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditarProy{{ p.id }}">
+            Editar
+        </button>
+    </div>
+    {% endif %}
+
+</div>
+
+{% if session.get('user') %}
+<!-- Modal Editar -->
+<div class="modal fade" id="modalEditarProy{{ p.id }}" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST" enctype="multipart/form-data" action="{{ url_for('modificar_proyecto', proy_id=p.id) }}">
+        {{ form_editar.hidden_tag() }}
+
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Proyecto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          {{ form_editar.titulo(class_="form-control mb-2", value=p.titulo) }}
+          {{ form_editar.descripcion(class_="form-control mb-2", value=p.descripcion) }}
+          {{ form_editar.fecha(class_="form-control mb-2", value=p.fecha) }}
+          {{ form_editar.github_url(class_="form-control mb-2", value=p.github_url) }}
+          {{ form_editar.imagen(class_="form-control mb-2") }}
+
+          {% if p.imagen %}
+          <img src="{{ url_for('uploads', filename=p.imagen) }}" style="width:60px;height:60px;object-fit:cover;" class="mt-2">
+          {% endif %}
+        </div>
+
+        <div class="modal-footer">
+          {{ form_editar.submit(class_="btn btn-primary") }}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endfor %}
+
+<!-- Formulario agregar nuevo proyecto -->
+{% if session.get('user') %}
+<div class="card p-3 mb-4">
+  <h5>Agregar nuevo proyecto</h5>
+  <form method="POST" enctype="multipart/form-data" action="{{ url_for('agregar_proyecto') }}">
+    {{ form_proyect.hidden_tag() }}
+    {{ form_proyect.titulo(class_="form-control mb-2", placeholder="Título") }}
+    {{ form_proyect.descripcion(class_="form-control mb-2", placeholder="Descripción") }}
+    {{ form_proyect.fecha(class_="form-control mb-2", placeholder="Fecha") }}
+    {{ form_proyect.github_url(class_="form-control mb-2", placeholder="GitHub URL") }}
+    {{ form_proyect.imagen(class_="form-control mb-2") }}
+    {{ form_proyect.submit(class_="btn btn-success") }}
+  </form>
+</div>
+{% endif %}
+
 
 </body>
 

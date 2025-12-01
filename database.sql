@@ -44,8 +44,15 @@ CREATE TABLE IF NOT EXISTS cursos (
     usuario_id INT NOT NULL,
     nombre VARCHAR(200) NOT NULL,
     institucion VARCHAR(200) NOT NULL,
-    periodo VARCHAR(150),
-    certificacion_url VARCHAR(255), -- opcional
+    periodo VARCHAR(150)
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
+CREATE TABLE IF NOT EXISTS proyectos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    descripcion TEXT,
+    fecha VARCHAR(50),
+    github_url VARCHAR(255),
+    imagen VARCHAR(255)  -- aquí guardamos el nombre del archivo subido
+);
